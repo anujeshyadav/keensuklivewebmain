@@ -11,7 +11,7 @@ import "../../../../src/assets/scss/LiveStream.scss";
 import { useLocation } from "react-router-dom";
 import swal from "sweetalert";
 import { pink, yellow } from "@mui/material/colors";
-import './LiveVideonew.css'
+import "./LiveVideonew.css";
 function LiveVideonew() {
   const [Videocall, setVideocall] = useState(true);
   const [chanel, setchannel] = useState("");
@@ -20,15 +20,29 @@ function LiveVideonew() {
   const history = useHistory();
 
   const location = useLocation();
-
+  const CustomVideoPlaceholder = {
+    showButtons: false,
+  };
+  // const VideoPlaceholderProps={
+  //   showButtons: false,
+  //   isShown: false,
+  //     showSwap: false,
+  // }
   const rtcProps = {
     appId: "211ddf5d3ed341acaf8f7608e94b7c91",
+    // CustomVideoPlaceholder:(value)=>{
+    //   debugger
+    //   value.showButtons=false;
+    //   value.isShown=false;
+    //   value.showSwap=false;
+    //   console.log("value",value?.showButtons)
 
+    // },
     channel: chanel,
     layout: 1,
 
     token: token,
-    uid: 0,
+    // uid: 0,
     role: "audience",
   };
 
@@ -50,8 +64,10 @@ function LiveVideonew() {
   };
   useEffect(() => {
     let userdata = JSON.parse(localStorage.getItem("userCredential"));
-    // console.log(userdata);
-    // setUserData(userdata);
+    debugger;
+    console.log(userdata);
+    console.log(location?.state);
+    setUserData(userdata);
     // console.log(location.state);
     const channel = location?.state?.channelName;
     const token = location?.state?.token;
@@ -74,10 +90,10 @@ function LiveVideonew() {
         </Row>
         {Videocall ? (
           <>
+            {/* maindiv */}
+            <div
+              className="main"
 
-                                                                         {/* maindiv */}
-            <div className="main"
-            
               // style={{
               //   display: "flex",
               //   width: "100%",
@@ -88,10 +104,9 @@ function LiveVideonew() {
               // className="main  row "
               // className="maindivstream container mt-3 mb-3"
             >
-
-
-                                                                    {/* firstdiv */}
-              <div className="box"
+              {/* firstdiv */}
+              <div
+                className="box"
                 style={{
                   // marginLeft: "-10px",
                   display: "flex",
@@ -102,11 +117,16 @@ function LiveVideonew() {
                 }}
                 // className="col-xl-8 col-sm-12 col-md-12 col-lg-12 col-xs-12"
               >
-                <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
+                <AgoraUIKit
+                  className="myagoraclass"
+                  rtcProps={rtcProps}
+                  callbacks={callbacks}
+                />
               </div>
 
-                                                                           {/* secontdiv */}
-              <div className="box1"
+              {/* secontdiv */}
+              <div
+                className="box1"
                 // style={{
                 //   // display: "flex",
                 //   // width: "100%",

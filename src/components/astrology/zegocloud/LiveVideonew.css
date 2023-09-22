@@ -36,14 +36,17 @@
     margin-left: 0px;
 }
 .box1{
-    height: 400px;
+    height: 480px;
     width: 100%;
     position: absolute;
     /* background: pink; */
     /* border: 1px solid black; */
+
     overflow: hidden;
+    overflow-y: scroll;
     margin: 60px 0px 0px 0px;
     margin-left: 0px;
+    color: white;
 }
 .inp{
     margin-top: 215px;

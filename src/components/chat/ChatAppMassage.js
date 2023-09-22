@@ -31,7 +31,7 @@ class ChatAppMassage extends React.Component {
                       <div key={index} className="message">
                         <div class="message-body">
                           <Row>
-                            <Col>
+                            <Col lg="3" sm="3" md="3" xs="3">
                               <img
                                 style={{ borderRadius: "50%" }}
                                 width="40px"
@@ -42,12 +42,23 @@ class ChatAppMassage extends React.Component {
 
                             <Col lg="">
                               <Row>
-                                <h6 className="container">
+                                <h6
+                                  className="container "
+                                  style={{ color: "white" }}
+                                >
                                   <b> {chat?.username}</b>
                                 </h6>
                               </Row>
                               <Row>
-                                <h6 className="container">{chat.msg}</h6>
+                                <h6
+                                  className="container"
+                                  style={{
+                                    color: "white",
+                                    paddingLeft: "20px",
+                                  }}
+                                >
+                                  {chat.msg}
+                                </h6>
                               </Row>
                             </Col>
                           </Row>

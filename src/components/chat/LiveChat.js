@@ -1,7 +1,16 @@
 import React from "react";
-import { Badge, Button, Col, Container, Form, Input, Label, Row } from "reactstrap";
+import {
+  Badge,
+  Button,
+  Col,
+  Container,
+  Form,
+  Input,
+  Label,
+  Row,
+} from "reactstrap";
 import "../../assets/scss/chat.scss";
-
+import img from "../../assets/img/astro-4.jpg";
 import ChatAppMassage from "./ChatAppMassage";
 import axiosConfig from "../../axiosConfig";
 import { SlCallOut } from "react-icons/sl";
@@ -57,14 +66,11 @@ class ChatApp extends React.Component {
   }
   updateWidth = () => {
     setInterval(() => {
-     
-        // const width = this.myElementRef.current.offsetWidth;
-        let width = window.innerWidth;
-        console.log(width)
-        this.setState({ width:width });
-      
+      // const width = this.myElementRef.current.offsetWidth;
+      let width = window.innerWidth;
+      console.log(width);
+      this.setState({ width: width });
     }, 500);
- 
   };
 
   // otpHandler = async (e) => {
@@ -199,10 +205,11 @@ class ChatApp extends React.Component {
     } else swal("User Not login", "Try to login First");
   };
   componentDidMount = () => {
-    this.updateWidth(); 
-  
+    this.updateWidth();
+
     this.handleliveChat();
     console.log(this.props?.Liveastrodata);
+
     this.setState({ liveSellerdata: this.props?.Liveastrodata });
     let userdata = JSON.parse(localStorage.getItem("userCredential"));
     console.log(userdata?.username);
@@ -219,10 +226,9 @@ class ChatApp extends React.Component {
   };
   componentWillUnmount() {
     // Remove the event listener when the component unmounts to prevent memory leaks
-    window.removeEventListener('resize', this.updateWidth);
+    window.removeEventListener("resize", this.updateWidth);
   }
 
-  
   // handlechat = () => {
   //   axiosConfig
   //     .get(`/user/allchatwithuser/${this.state.roomId}`)
@@ -316,24 +322,26 @@ class ChatApp extends React.Component {
   render() {
     return (
       <div className="">
-     
         <div
-        className={`${this.state.width >= 576 ? "app rt-chats " : "customclassinput  "}`}
-        //  className = `{${this.state.width && this.state.width} <= 576 ? "customclassinput" : "app rt-chats"}`
-         >
+          className={`${
+            this.state.width >= 576 ? "app rt-chats " : "customclassinput  "
+          }`}
+          //  className = `{${this.state.width && this.state.width} <= 576 ? "customclassinput" : "app rt-chats"}`
+        >
           <div className="messages">
-            {/* <div className="chat-header">
+            <div className="chat-header">
               <p>
                 <span>
                   <img
-                    src={this.state.Activeastro?.img}
+                    src={img}
+                    style={{ width: "45px", height: "45px" }}
                     className="app-img"
                     alt=""
                   />
                 </span>
-                {this.state.Activeastro?.fullname}
+                {this.props?.Liveastrodata?.channelName}
               </p>
-              <span
+              {/* <span
                 // onClick={this.toggle}
                 onClick={this.modalOpen}
                 className="appchattimer"
@@ -347,10 +355,14 @@ class ChatApp extends React.Component {
                     <SlCallOut />
                   </Button>
                 </div>
-              </span>
-            </div> */}
-            <div 
-            className={`${this.state.width >= 576 ? "messages-history" : "customclassinputsss"}`}
+              </span> */}
+            </div>
+            <div
+              className={`${
+                this.state.width >= 576
+                  ? "messages-history"
+                  : "customclassinputsss"
+              }`}
             >
               <ChatAppMassage
                 roomChatData={
@@ -362,9 +374,9 @@ class ChatApp extends React.Component {
             </div>
 
             <form className="messages-inputs">
-              <input className="input1 sticky-input form-control"
+              <input
+                className="input1 sticky-input form-control"
                 type="text"
-                
                 placeholder="Send a message"
                 onChange={(e) => {
                   this.handleChange(e);
@@ -372,7 +384,9 @@ class ChatApp extends React.Component {
                 value={this.state.msg}
                 defaultValue={""}
               />
-              <Button color="primary" className="btn-btn-primary sticky1-input text-dark"
+              <Button
+                color="primary"
+                className="btn-btn-primary sticky1-input text-dark"
                 onClick={(e) => {
                   this.submitHandler(e);
                 }}

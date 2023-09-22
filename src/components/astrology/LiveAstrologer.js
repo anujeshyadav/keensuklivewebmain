@@ -81,6 +81,12 @@ class LiveAstrologer extends React.Component {
               <Col lg="8">
                 <h3>Live Sellers</h3>
               </Col>
+              <Col lg="4">
+              <div className="d-flex justify-content-end">
+
+                <h3>Total Live Seller({this.state.liveastrilist.length })</h3>
+              </div>
+              </Col>
             </Row>
             <Row>
               {this.state.liveastrilist.length > 0 ? (

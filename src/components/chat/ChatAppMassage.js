@@ -43,7 +43,7 @@ class ChatAppMassage extends React.Component {
                             <Col lg="">
                               <Row>
                                 <h6
-                                  className="container "
+                                  className="container"
                                   style={{ color: "white" }}
                                 >
                                   <b> {chat?.username}</b>
@@ -53,6 +53,7 @@ class ChatAppMassage extends React.Component {
                                 <h6
                                   className="container"
                                   style={{
+                                    marginBottom: "12px",
                                     color: "white",
                                     paddingLeft: "20px",
                                   }}

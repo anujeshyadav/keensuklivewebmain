@@ -21,6 +21,13 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border: none;
 }
+form.messages-inputs {
+  padding: 19px;
+}
+.msginputheading {
+  overflow-y: scroll;
+  height: 280px;
+}
 .contacts_body{
   padding:  0.75rem 0 !important;
   // overflow-y: auto;
@@ -474,7 +481,14 @@ flex-direction: row;
   }
 }
 }
-
+.customclassinputsss {
+  height: 441px;
+  /* overflow: auto; */
+  flex: 1 1 auto;
+  display: flex;
+  /* align-items: end; */
+  flex-direction: column-reverse;
+}
 // newappchat
 
 .list-main{
@@ -505,8 +519,8 @@ section.app-chatbg {
 background: #ffd59e3d;
 }
 .chat-header {
+position:absolute;
 padding: 0px 10px;
-background: #ddd;
 }
 span.appchattimer {
 float: right;
@@ -526,7 +540,7 @@ h4.existingchatnew {
 }
 .app.rt-chats {
   width: 100%;
-  height: 79vh;
+  height: 81vh;
 }
 img.app-imgs {
   top: -84px;

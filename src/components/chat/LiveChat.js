@@ -324,7 +324,7 @@ class ChatApp extends React.Component {
       <div className="">
         <div
           className={`${
-            this.state.width >= 576 ? "app rt-chats " : "customclassinput  "
+            this.state.width >= 576 ? "app rt-chats " : "customclassinput "
           }`}
           //  className = `{${this.state.width && this.state.width} <= 576 ? "customclassinput" : "app rt-chats"}`
         >
@@ -361,20 +361,27 @@ class ChatApp extends React.Component {
               className={`${
                 this.state.width >= 576
                   ? "messages-history"
-                  : "customclassinputsss"
+                  : "customclassinputsss "
               }`}
             >
-              <ChatAppMassage
-                roomChatData={
-                  this.state.roomChatData.length > 0
-                    ? this.state.roomChatData
-                    : []
-                }
-              />
+              <div
+                className={`${
+                  this.state.width <= 576 ? "msginputheading" : ""
+                }`}
+              >
+                <ChatAppMassage
+                  roomChatData={
+                    this.state.roomChatData.length > 0
+                      ? this.state.roomChatData
+                      : []
+                  }
+                />
+              </div>
             </div>
 
             <form className="messages-inputs">
               <input
+                style={{ zIndex: `${this.state.width <= 576 ? "111" : ""}` }}
                 className="input1 sticky-input form-control"
                 type="text"
                 placeholder="Send a message"
@@ -386,6 +393,7 @@ class ChatApp extends React.Component {
               />
               <Button
                 color="primary"
+                style={{ zIndex: `${this.state.width <= 576 ? "111" : ""}` }}
                 className="btn-btn-primary sticky1-input text-dark"
                 onClick={(e) => {
                   this.submitHandler(e);

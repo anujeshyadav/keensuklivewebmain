@@ -36,7 +36,8 @@
     margin-left: 0px;
 }
 .box1{
-    height: 480px;
+    height: 513px;
+    top: 0px;
     width: 100%;
     position: absolute;
     /* background: pink; */

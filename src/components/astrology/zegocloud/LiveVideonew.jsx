@@ -28,10 +28,12 @@ function LiveVideonew() {
   //   isShown: false,
   //     showSwap: false,
   // }
+  // const remoteBtnStyles = {
+  //   UIKitContainer: "",
+  // };
   const rtcProps = {
     appId: "211ddf5d3ed341acaf8f7608e94b7c91",
     // CustomVideoPlaceholder:(value)=>{
-    //   debugger
     //   value.showButtons=false;
     //   value.isShown=false;
     //   value.showSwap=false;
@@ -64,7 +66,6 @@ function LiveVideonew() {
   };
   useEffect(() => {
     let userdata = JSON.parse(localStorage.getItem("userCredential"));
-    debugger;
     console.log(userdata);
     console.log(location?.state);
     setUserData(userdata);
@@ -82,9 +83,21 @@ function LiveVideonew() {
     <div>
       <>
         <Row>
-          <Col>
+          <Col lg="10" sm="10" md="10" xs="10">
             <div className="container d-flex justify-content-center mt-2">
-              <h2>Live Chat with Seller</h2>
+              <h3>Live Chat with Seller</h3>
+            </div>
+          </Col>
+          <Col>
+            <div className="container d-flex justify-content-end mt-2">
+              <h2
+                onClick={() => {
+                  window.history.back();
+                }}
+                style={{ cursor: "pointer" }}
+              >
+                x
+              </h2>
             </div>
           </Col>
         </Row>
@@ -121,18 +134,21 @@ function LiveVideonew() {
                   className="myagoraclass"
                   rtcProps={rtcProps}
                   callbacks={callbacks}
+                  // styleProps={remoteBtnStyles}
                 />
               </div>
 
               {/* secontdiv */}
               <div
                 className="box1"
-                // style={{
-                //   // display: "flex",
-                //   // width: "100%",
-                //   height: "80vh",
-                //   // background:pink,
-                // }}
+                style={
+                  {
+                    // display: "flex",
+                    // width: "100%",
+                    // height: "80vh",
+                    // background:pink,
+                  }
+                }
                 // className="col-xl-4 col-sm-12 col-md-12 col-lg-12 col-xs-12"
               >
                 <div className="col-xl-12 col-sm-12 col-md-12 col-lg-12">

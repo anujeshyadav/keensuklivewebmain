@@ -20,25 +20,21 @@ function LiveVideonew() {
   const history = useHistory();
 
   const location = useLocation();
-  const CustomVideoPlaceholder = {
-    showButtons: false,
-  };
+
   // const VideoPlaceholderProps={
   //   showButtons: false,
   //   isShown: false,
   //     showSwap: false,
   // }
   // const remoteBtnStyles = {
-  //   UIKitContainer: "",
+  //   remoteBtnStyles: "",
   // };
   const rtcProps = {
     appId: "211ddf5d3ed341acaf8f7608e94b7c91",
-    // CustomVideoPlaceholder:(value)=>{
-    //   value.showButtons=false;
-    //   value.isShown=false;
-    //   value.showSwap=false;
-    //   console.log("value",value?.showButtons)
-
+    // CustomVideoPlaceholder: ({ showButtons, isShown }) => {
+    //   debugger;
+    //   showButtons = false;
+    //   isShown = true;
     // },
     channel: chanel,
     layout: 1,
@@ -66,8 +62,8 @@ function LiveVideonew() {
   };
   useEffect(() => {
     let userdata = JSON.parse(localStorage.getItem("userCredential"));
-    console.log(userdata);
-    console.log(location?.state);
+    // console.log(userdata);
+    // console.log(location?.state);
     setUserData(userdata);
     // console.log(location.state);
     const channel = location?.state?.channelName;

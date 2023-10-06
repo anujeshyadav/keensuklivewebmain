@@ -85,7 +85,7 @@ function LiveVideonew() {
         <Row>
           <Col lg="10" sm="10" md="10" xs="10">
             <div className="container d-flex justify-content-center mt-2">
-              <h3>Live Chat with Seller</h3>
+              {/* <h3>Live Chat with Seller</h3> */}
             </div>
           </Col>
           <Col>
